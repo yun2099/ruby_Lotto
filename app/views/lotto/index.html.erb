@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head>
+    <title>로또</title>
+</head>
+<body>
+    
+  <h1>로또로또</h1>
+    
+  <p>
+    <%= form_tag("/lotto/pick") do %>
+    <%= $draw %>
+        <br>
+      <input type=submit value="추첨">
+    <% end %>
+  </p>
+  <br>
+  <p>
+    <%= form_tag("/lotto/check") do %>
+    <%= $win %>
+      <br>
+      <input type=submit value="확인">
+    <%end%>
+    <br>
+    
+    <%if $tmp != 0%>
+      맞춘 갯수: <%=$tmp%>
+    <%elsif $tmp == 6%>
+      맞춘 갯수 : <%=$tmp%>
+      로또 당첨!
+    <%else%>
+      꽝!
+    <%end%>
+  </p>
+</body>
